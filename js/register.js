@@ -93,4 +93,20 @@ App.prototype = {
         }
     }
 }
-new App().init()
+
+
+let app = new App()
+app.init()
+
+
+let vue = new Vue({
+    el: "#register_button",
+    data: {
+        app: app,
+    },
+    computed: {
+        isDisabled: function () {
+            return !(this.app.mobileCheckResult && this.app.passwordCheckResult && this.app.passwordConfirmResult)
+        }
+    }
+})
