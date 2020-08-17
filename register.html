@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet"><title>Index</title>
+    <link href="css/register.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="register_col" class="col-md-4 col-md-offset-4">
+                <div id="register_box" class="center-block">
+                    <h1 class="text-primary" style="text-align: center"> 注册 </h1>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" id="mobile" class="form-control input-lg" maxlength="11" placeholder="手机号"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="password" class="form-control input-lg" placeholder="密码长度为 6 ~ 32 位"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="check_password" class="form-control input-lg" placeholder="请确认密码"/>
+                        </div>
+                        <button type="button" id="register_button" class="btn btn-primary btn-lg btn-block">注册</button>
+                    </form>
+                    <h4 style="text-align: right"> 已有账号? 点击<a href="login.html">登录</a></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script>
+    function App() {
+
+    }
+
+    App.prototype = {
+        init: function () {
+            this.reset()
+            this.initEvent()
+        },
+
+        // 选择元素, 初始化属性
+        reset: function () {
+            let _this = this
+            this.$mobileInput = $("#mobile")
+            this.$passwordInput = $("#password")
+            this.$checkPasswordInput = $("#check_password")
+            this.$registerButton = $("#register_button")
+            this.mobileCheckResult = false
+        },
+
+        // 绑定事件
+        initEvent: function () {
+            let _this = this
+            this.$mobileInput.on("keyup", function () {
+                let mobile = $(this).val()
+                _this.mobileCheck(mobile)
+            })
+        },
+
+        // 定义方法
+        mobileCheck: function (mobile) {
+            let _this = this
+            _this.mobileCheckResult = /^1[3-9]\d{9}$/.test(mobile)
+            console.log(_this.mobileCheckResult)
+        }
+    }
+    new App().init()
+</script>
+</html>

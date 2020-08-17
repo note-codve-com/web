@@ -1,0 +1,15 @@
+.gradle/
+.idea/
+out/
+build/
+.mvn/
+target/
+images/
+
+
+*.log
+*.iml
+*.DS_Store
+*.jar
+*mvnw*
+*mvnw.cmd*
