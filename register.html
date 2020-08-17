@@ -17,12 +17,15 @@
                         <div class="form-group">
                             <input type="text" id="mobile" class="form-control input-lg" maxlength="11" placeholder="手机号"/>
                         </div>
+                        <div id="mobile_alert" class="alert alert-danger" role="alert" hidden="hidden">请输入正确的手机号.</div>
                         <div class="form-group">
-                            <input type="password" id="password" class="form-control input-lg" placeholder="密码长度为 6 ~ 32 位"/>
+                            <input type="password" id="password" class="form-control input-lg" maxlength="18" placeholder="密码长度为 6 ~ 18 位"/>
                         </div>
+                        <div id="password_alert" class="alert alert-danger" role="alert" hidden="hidden">密码长度为 6 ~ 18 位</div>
                         <div class="form-group">
-                            <input type="password" id="check_password" class="form-control input-lg" placeholder="请确认密码"/>
+                            <input type="password" id="password_confirm" class="form-control input-lg" maxlength="18" placeholder="请确认密码"/>
                         </div>
+                        <div id="password_confirm_alert" class="alert alert-danger" role="alert" hidden="hidden">密码不一致</div>
                         <button type="button" id="register_button" class="btn btn-primary btn-lg btn-block">注册</button>
                     </form>
                     <h4 style="text-align: right"> 已有账号? 点击<a href="login.html">登录</a></h4>
@@ -32,43 +35,6 @@
     </div>
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
-<script>
-    function App() {
-
-    }
-
-    App.prototype = {
-        init: function () {
-            this.reset()
-            this.initEvent()
-        },
-
-        // 选择元素, 初始化属性
-        reset: function () {
-            let _this = this
-            this.$mobileInput = $("#mobile")
-            this.$passwordInput = $("#password")
-            this.$checkPasswordInput = $("#check_password")
-            this.$registerButton = $("#register_button")
-            this.mobileCheckResult = false
-        },
-
-        // 绑定事件
-        initEvent: function () {
-            let _this = this
-            this.$mobileInput.on("keyup", function () {
-                let mobile = $(this).val()
-                _this.mobileCheck(mobile)
-            })
-        },
-
-        // 定义方法
-        mobileCheck: function (mobile) {
-            let _this = this
-            _this.mobileCheckResult = /^1[3-9]\d{9}$/.test(mobile)
-            console.log(_this.mobileCheckResult)
-        }
-    }
-    new App().init()
-</script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="js/register.js"></script>
 </html>
